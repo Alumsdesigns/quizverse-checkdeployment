@@ -99,6 +99,7 @@ h1, h2, h3, h4, h5, h6, p {
   margin-bottom: 32px;
   width: 100%;
 }
+
 .hero-left {
   order: 1;
   width: 100%;
@@ -110,6 +111,7 @@ h1, h2, h3, h4, h5, h6, p {
   max-width: 100%;
   box-sizing: border-box;
 }
+
 .badge {
   font-size: 1em;
   padding: 4px 12px;
@@ -122,6 +124,7 @@ h1, h2, h3, h4, h5, h6, p {
   letter-spacing: 0.5px;
   box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
 }
+
 .hero-title-group {
   max-width: 100%;
   font-size: 1.35em;
@@ -130,19 +133,24 @@ h1, h2, h3, h4, h5, h6, p {
   overflow-wrap: break-word;
   margin-bottom: 0.5rem;
 }
+
 .hero-title-group, .hero-title-main, .hero-title-accent {
   font-weight: 800;
   letter-spacing: -1px;
 }
+
 .hero-title-group .hero-title-main:nth-child(1),
 .hero-title-group .hero-title-main:nth-child(2) {
   color: var(--color-base-light);
 }
+
 .hero-title-group .hero-title-main,
 .hero-title-group .hero-title-accent {
   font-size: var(--font-size-xl);
 }
+
 .hero-title-accent {
   color: #006837;
   font-weight: 800;
 }
+
