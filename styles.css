@@ -36,3 +36,53 @@ h1, h2, h3, h4, h5, h6, p {
   margin-top: 0;
   font-family: var(--font-heading);
 }
+
+.container {
+  overflow: hidden;
+  min-height: 85vh;
+  max-height: fit-content;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  border-radius: var(--radius-default);
+  background: var(--gradient-bg);
+  box-shadow: var(--shadow-small);
+  position: relative;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity var(--transition-btn) ease;
+  padding: 0;
+  width: 100%;
+  min-width: unset;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 1000;
+  background: var(--color-primary-dark);
+  color: var(--color-base-light);
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 1em;
+  text-decoration: none;
+  transition: left var(--transition-btn), box-shadow var(--transition-btn);
+}
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+  width: auto;
+  height: auto;
+  outline: 3px solid var(--color-primary-dark);
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.2);
+}
