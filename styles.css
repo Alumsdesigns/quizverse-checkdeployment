@@ -7,16 +7,18 @@
   --color-secondary: #9575cd;
   --color-secondary-light: #d1c4e9;
   --color-accent: #ffd600;
-  --color-success: #0aba83;
+  --color-success: #0aba83; 
   --color-success-dark: #185a9d;
+  --color-validation: ##2e7d32; 
   --color-error: #ff5858;
+  --color-border: #d32f2f; 
   --color-error-accent: #f09819;
   --color-info-bg: #e3f2fd;
   --color-bg: #f0f4f8;
   --color-base-light: #fafafa;
   --color-base-dark: #1a1a1a;
   --color-soft-black: #333;
-  --color-muted-text: #888;
+  --color-placeholder: #888;
 
   /* --- Typography --- */
   --font-main: 'Lato', Arial, Helvetica, sans-serif;
@@ -326,7 +328,7 @@ form:focus-within {
   border: 1.5px solid #b3e5fc;
   border-radius: var(--radius-input);
   background: rgba(255,255,255,0.95);
-  color: #222;
+  color: var(--color-base-dark);
   transition: border-color var(--transition-btn), box-shadow var(--transition-btn);
   outline: none;
   font-family: inherit;
@@ -341,25 +343,25 @@ form:focus-within {
 
 #welcome-form input::placeholder {
   font-size: 1rem;
-  color: var(--color-muted-text);
+  color: var(--color-placeholder);
   opacity: 1;
   font-family: inherit;
 }
 
 /* Errors & Validation */
 #welcome-form input:invalid {
-  border-color: #d32f2f;
+  border-color: var(--color-border);
   box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.2);
   font-size: 1em;
 }
 
 #welcome-form input:invalid:focus {
-  border-color: #d32f2f;
+  border-color: var(--color-border);
   box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.3);
 }
 
 #welcome-form input::placeholder {
-  color: #999;
+  color: var(--color-placeholder);
   font-style: italic;
   font-size: 1em;
 }
@@ -397,13 +399,13 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
   padding: 4px 0 4px 10px;
   margin-top: 1px;
   margin-bottom: 2px;
-  color: #d32f2f;
+  color: var(--color-border);
   min-height: 1.2em;
   font-weight: 400;
   font-family: var(--font-main);
   line-height: 1.4;
   transition: opacity var(--transition-btn) ease, transform 0.2s ease;
-  border-left: 3px solid #d32f2f;
+  border-left: 3px solid var(--color-border);;
   background-color: var(--color-base-light);
   border-radius: 0 4px 4px 0;
   text-align: left;
@@ -415,18 +417,16 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
 .error-message:empty { display: none; }
 .error-message.error-active { animation: shake 0.5s ease-in-out; }
 .error-message.success-message {
-  color: #2e7d32;
-  border-left-color: #2e7d32;
+  color: var(--color-validation);
+  border-left-color: var(--color-validation);
   background-color: var(--color-base-light);
 }
+
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   25% { transform: translateX(-5px); }
   75% { transform: translateX(5px); }
 }
-
-
-
 
 /* Responsive: Tablet */
 @media (min-width: 601px) and (max-width: 1200px) {
