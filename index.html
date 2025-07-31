@@ -20,6 +20,27 @@
             <span class="hero-title-accent">Win.</span>
           </h1>
         </header> 
+        <p class="hero-desc">Test your knowledge with a mix of general knowledge, pop culture, geography, and science questions! From classic TV and music to world capitals and famous authors, see how many fun facts you know.</p>
+        <form id="welcome-form" autocomplete="on" aria-describedby="welcome-label" novalidate>
+          <label for="username"><strong>Enter your name:</strong></label>
+          <input 
+            type="text" 
+            id="username" 
+            aria-required="true" 
+            required
+            placeholder="Enter your name" 
+            aria-label="Enter your name" 
+            autocomplete="name"
+            maxlength="50"
+            pattern="[A-Za-zÀ-ÿ\s'-]{2,50}"
+            title="Please enter a valid name (2-50 characters, letters, spaces, hyphens, and apostrophes only)"
+            aria-describedby="username-error"
+          >
+          <div id="username-error" class="error-message" role="alert" aria-live="polite"></div>
+          <button id="startBtn" aria-pressed="false" type="submit">
+            Start Quiz Now
+          </button>
+        </form>
   </section>
 </main>
 
