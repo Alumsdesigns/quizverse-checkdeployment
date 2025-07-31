@@ -1,25 +1,71 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700;800&family=Roboto:wght@400;700&display=swap');
 
 :root {
+  /* --- Colors --- */
   --color-primary: #64b5f6;
   --color-primary-dark: #1976d2;
+  --color-secondary: #9575cd;
+  --color-secondary-light: #d1c4e9;
+  --color-accent: #ffd600;
+  --color-success: #0aba83;
+  --color-success-dark: #185a9d;
+  --color-error: #ff5858;
+  --color-error-accent: #f09819;
   --color-info-bg: #e3f2fd;
   --color-bg: #f0f4f8;
   --color-base-light: #fafafa;
   --color-base-dark: #1a1a1a;
   --color-soft-black: #333;
   --color-muted-text: #888;
+
+  /* --- Typography --- */
   --font-main: 'Lato', Arial, Helvetica, sans-serif;
   --font-heading: 'Playfair Display', serif;
+  --font-choice: 'Roboto', Arial, Helvetica, sans-serif;
   --font-size-base: 14px;
+  --font-size-lg: 1.3em;
   --font-size-xl: 1.7em;
+  --font-size-h2: 1.8em;
+  --font-size-h3: 1.6em;
+  --font-size-h4: 1.4em;
+  --font-size-choice: 1.2em;
+  --font-size-feedback: 1.2em;
+  --font-size-congrats: 1.3em;
+
+  /* --- Spacing --- */
   --radius-default: 6px;
   --radius-strong: 18px;
-  --gradient-bg: linear-gradient(135deg, #42a5f5 0%, #7b1fa2 60%, #ab47bc 100%);
+  --radius-btn: 4px;
+  --radius-input: 10px;
+  --radius-badge: 16px;
+  --radius-error: 4px;
   --shadow-small: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-large: 0 10px 28px rgba(33,150,243,0.13),
+                 0 2px 8px rgba(0,0,0,0.10);
+
+  /* --- Gradients --- */
+  --gradient-bg: linear-gradient(135deg, #42a5f5 0%, #7b1fa2 60%, #ab47bc 100%);
+  --gradient-btn: linear-gradient(90deg, #3949ab 0%, #7c4dff 100%);
+  --gradient-btn-hover: linear-gradient(90deg, #7c4dff 0%, var(--color-primary) 100%);
+  --gradient-feedback-ok: linear-gradient(90deg, var(--color-success) 0%, var(--color-success-dark) 100%);
+  --gradient-feedback-bad: linear-gradient(90deg, var(--color-error) 0%, var(--color-error-accent) 100%);
+
+  /* --- Misc --- */
+  --transition-default: 0.3s;
   --transition-btn: 0.3s;
+  --progress-bar-height: 28px;
+  --progress-bar-radius: 16px;
+  --congrats-anim: 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+
+  /* --- Sizes for hero image --- */
+  --hero-img-mobile-width: 90vw;
+  --hero-img-tablet-width: 90vw;
+  --hero-img-desktop-width: 380px;
 }
 
+/*****************************************
+ * Base and Layout
+ *****************************************/
 html {
   font-size: var(--font-size-base);
 }
@@ -35,6 +81,24 @@ body {
 h1, h2, h3, h4, h5, h6, p {
   margin-top: 0;
   font-family: var(--font-heading);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: 700;
+  color: var(--color-base-light);
+  margin: 5rem 0 0 0;
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+  font-weight: 600;
+  color: var(--color-base-light);
+  margin-bottom: 0.75rem;
+}
+
+header {
+  width: 100%;
 }
 
 .container {
@@ -62,6 +126,49 @@ h1, h2, h3, h4, h5, h6, p {
   min-width: unset;
 }
 
+/******************************************
+ * Buttons 
+ ******************************************/
+button {
+  font-size: 1em;
+  padding: 12px 0;
+  width: 100%;
+  min-height: 44px;
+  margin: 20px 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-btn);
+  background: var(--gradient-btn);
+  color: var(--color-base-light);
+  font-weight: 700;
+  font-family: var(--font-choice);
+  box-shadow: 0 2px 8px rgba(60,60,120,0.10);
+  transition: background var(--transition-btn), box-shadow var(--transition-btn), color var(--transition-btn);
+  text-align: left;
+  padding-left: 1em;
+}
+
+button:focus {
+  outline: 3px solid var(--color-soft-black);
+  outline-offset: 2px;
+}
+
+button:hover,
+button:focus-visible {
+  background: var(--gradient-btn-hover);
+  color: var(--color-base-light);
+  box-shadow: 0 4px 16px rgba(60,60,120,0.16);
+}
+
+#startBtn {
+  max-width: fit-content;
+  padding: 24px 24px;
+  margin: 10px;
+}
+
+/******************************************
+ * Accessibility
+ ******************************************/
 .skip-link {
   position: absolute;
   left: -999px;
@@ -88,7 +195,9 @@ h1, h2, h3, h4, h5, h6, p {
   box-shadow: 0 2px 8px rgba(25, 118, 210, 0.2);
 }
 
-/* Hero Section */
+/******************************************
+ * Hero Section
+ ******************************************/
 .hero-grid {
   display: flex;
   flex-direction: column;
@@ -154,6 +263,24 @@ h1, h2, h3, h4, h5, h6, p {
   font-weight: 800;
 }
 
+.hero-desc {
+  max-width: 60vw;
+  font-size: 1.05em;
+  margin-bottom: 0.7em;
+  margin-top: 0.2em;
+  overflow-wrap: break-word;
+  color: var(--color-base-light);
+  font-family: var(--font-main);
+  font-weight: 400;
+}
+
+/******************************************
+ * Forms and Feedback
+ ******************************************/
+form:focus-within {
+  outline: 2px solid var(--color-primary-dark);
+  outline-offset: 2px;
+}
 
 /* Welcome Form Structure and Layout */
 #welcome-form {
@@ -252,7 +379,16 @@ h1, h2, h3, h4, h5, h6, p {
   align-self: flex-start;
 }
 
-/* Error Message Styling */
+/* Remove focus outlines for non-accessibility reasons */
+input:focus, textarea:focus, select:focus, button:focus { outline: none; }
+input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-visible { outline: none; }
+#result-screen { outline: none; }
+#result-screen:focus { outline: none; }
+#result-screen *:focus { outline: none; }
+
+/******************************************
+ * Error Message
+ ******************************************/
 .error-message {
   width: 90vw;
   max-width: 100%;
@@ -278,11 +414,18 @@ h1, h2, h3, h4, h5, h6, p {
 
 .error-message:empty { display: none; }
 .error-message.error-active { animation: shake 0.5s ease-in-out; }
+.error-message.success-message {
+  color: #2e7d32;
+  border-left-color: #2e7d32;
+  background-color: var(--color-base-light);
+}
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   25% { transform: translateX(-5px); }
   75% { transform: translateX(5px); }
 }
+
+
 
 
 /* Responsive: Tablet */
@@ -320,6 +463,57 @@ h1, h2, h3, h4, h5, h6, p {
     font-size: 1.15em; 
     padding: 6px 20px; 
     margin-bottom: 12px; 
+  }
+
+   #welcome-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    outline: none;
+  }
+
+  #welcome-form label[for="username"] {
+    font-size: 1.15em;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90vw;
+    max-width: 320px;
+    display: block;
+  }
+  
+  #welcome-form input {
+    width: 90vw;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    font-size: 1.2em;
+    min-height: 52px;
+    padding: 18px 0;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  #welcome-form button,
+  #startBtn {
+    padding: 14px 14px;
+    max-width: fit-content;
+    align-self: center;
+  }
+
+  .error-message {
+    width: 90vw;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    font-size: 0.9em;
+    padding: 6px 0 6px 12px;
+    margin-top: 2px;
+    margin-bottom: 3px;
   }
 
 }
@@ -381,6 +575,51 @@ h1, h2, h3, h4, h5, h6, p {
     font-size: 1em; 
     padding: 4px 16px; 
     margin-bottom: 8px; 
+  }
+
+  #welcome-form {
+    max-width: none;
+    overflow-wrap: break-word;
+    outline: none;
+  }
+
+  #welcome-form input {
+    width: 450px;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 14px 18px;
+    font-size: 1.15em;
+    min-height: auto;
+    margin-bottom: 0;
+  }
+
+  #welcome-form input::placeholder {
+    font-size: 1.3em;
+  }
+
+  #welcome-form button,
+  #startBtn {
+    width: auto;
+    max-width: none;
+    box-sizing: border-box;
+    font-size: 1.35em;
+    min-height: auto;
+    padding: 18px 36px;
+    border-radius: 4px;
+    margin-top: 8px;
+    padding-left: 1rem;
+  }
+
+  .error-message {
+    width: 450px;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-size: 0.9em;
+    padding: 6px 0 6px 12px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
 }
