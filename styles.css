@@ -617,7 +617,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
     }
 
 
-#welcome-form {
+ #welcome-form {
     max-width: none;
     overflow-wrap: break-word;
     outline: none;
