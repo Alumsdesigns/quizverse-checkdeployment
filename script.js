@@ -208,25 +208,18 @@ if (usernameInput) {
   usernameInput.addEventListener('blur', validateUsername);
 }
 
-const VALIDATION_CONFIG = {
-  MIN_LENGTH: 2,
-  MAX_LENGTH: 50,
-  PATTERNS: {
-    VALID_NAME: /^[A-Za-zÀ-ÿ\s'-]+$/,
-    SUSPICIOUS: [
-      /script/i, /javascript/i, /on\w+\s*=/i, /<[^>]*>/i,
-      /union/i, /select/i, /insert/i, /update/i, /delete/i, /drop/i,
-      /exec/i, /eval/i, /alert/i, /confirm/i, /prompt/i,
-      /document\./i, /window\./i, /location\./i, /history\./i
-    ]
-  },
-  MESSAGES: {
-    EMPTY: 'Please enter your name to continue.',
-    TOO_SHORT: 'Name must be at least 2 characters long.',
-    TOO_LONG: 'Name must be 50 characters or less.',
-    INVALID_CHARS: 'Name can only contain letters, spaces, hyphens, and apostrophes.',
-    INVALID_SPACES: 'Name cannot start or end with spaces, or have multiple consecutive spaces.',
-    SUSPICIOUS: 'Please enter a valid name without special characters.',
-    SUCCESS: 'Name looks good!'
-  }
-};
+function startQuiz() {
+  const nameInput = document.getElementById('username');
+  const inputValue = nameInput.value.trim();
+  
+  username = sanitizeInput(inputValue);
+  score = 0;
+  currentQuestionIndex = 0;
+  clearInterval(timerInterval);
+  hideScreen(welcomeScreen);
+  showScreen(quizScreen);
+  if (closeQuizBtn) closeQuizBtn.style.display = 'flex';
+  showQuestion();
+  quizScreen.focus();
+}
+
