@@ -163,10 +163,145 @@ button:focus-visible {
   box-shadow: 0 4px 16px rgba(60,60,120,0.16);
 }
 
+#nextBtn {
+  font-size: 1.2em;
+  min-height: 52px;
+  padding: 16px 16px;
+  max-width: fit-content;
+}
+
 #startBtn {
   max-width: fit-content;
   padding: 24px 24px;
   margin: 10px;
+}
+
+/* Choices styling */
+#choices {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  color: var(--color-base-light);
+}
+
+.choice {
+  font-size: var(--font-size-choice);
+  min-height: 44px;
+  padding: 0;
+  margin: 6px 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: var(--font-choice);
+}
+
+.choice input[type="radio"] {
+  margin-right: 10px;
+}
+
+.choice input[type="radio"]:checked {
+  accent-color: var(--color-base-dark);
+}
+
+.choice:has(input[type="radio"]:checked) {
+  color: var(--color-base-dark);
+  font-weight: bold;
+
+#quiz-label {
+  text-align: left;
+  color: var(--color-base-light);
+  font-size: var(--font-size-h2);
+  max-width: 100%;
+  overflow-wrap: break-word;
+  font-weight: 600;
+  width: 100%;
+  align-self: flex-start;
+  margin: 10px;
+}
+
+/* Progress Bar and Container */
+#question-container { 
+  width: 100%; 
+}
+
+#question {
+  font-size: var(--font-size-h4);
+  margin: 10px 10px 0 10px;
+  color: var(--color-base-light);
+  text-align: left;
+  overflow-wrap: break-word;
+}
+
+/******************************************
+ * Universal Close (X) Button
+ ******************************************/
+.close-x {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.95);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10), 0 1.5px 4px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: box-shadow var(--transition-btn), background var(--transition-btn), transform 0.12s;
+  outline: none;
+  z-index: 20;
+  padding: 0;
+}
+
+.close-x:focus {
+  box-shadow: 0 0 0 3px var(--color-primary-dark), 0 2px 12px rgba(0,0,0,0.10);
+  background: #f5faff;
+}
+
+.close-x:hover {
+  background: #ffeaea;
+  transform: scale(1.08) rotate(-8deg);
+  box-shadow: 0 4px 20px rgba(211,47,47,0.13);
+}
+
+.close-x:active {
+  background: #f8d7da;
+  transform: scale(0.98);
+}
+
+.close-x__icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.close-x__icon line {
+  stroke: #d32f2f;
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: stroke var(--transition-btn);
+}
+
+.close-x:hover .close-x__icon line,
+.close-x:focus .close-x__icon line {
+  stroke: #b71c1c;
+}
+
+.close-x__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 /******************************************
@@ -271,20 +406,6 @@ form:focus-within {
   font-style: italic;
 }
 
-/* Errors & Validation */
-#welcome-form input:invalid {
-  border-color: var(--color-border);
-  box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.2);
-  font-size: 1em;
-}
-
-#welcome-form input:invalid:focus {
-  border-color: var(--color-border);
-  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.3);
-}
-
-
-/* Button Styling */
 #welcome-form button {
   max-width: fit-content;
   box-sizing: border-box;
@@ -304,6 +425,18 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
 #result-screen { outline: none; }
 #result-screen:focus { outline: none; }
 #result-screen *:focus { outline: none; }
+
+/* Errors & Validation */
+#welcome-form input:invalid {
+  border-color: var(--color-border);
+  box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.2);
+  font-size: 1em;
+}
+
+#welcome-form input:invalid:focus {
+  border-color: var(--color-border);
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.3);
+}
 
 
 /******************************************
@@ -518,6 +651,22 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
     overflow: hidden;
   }
 
+#quiz-label {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-size-h2);
+  }
+
+   #question { 
+    font-size: var(--font-size-h4);
+    margin: 0; 
+    max-width: 90vw; 
+    margin: 10px 10px 0 10px;
+  } 
+
+
+
   .hero-left {
     order: 1; 
     width: 100%;
@@ -530,7 +679,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
     flex-direction: column;
    }
 
-.hero-right { 
+ .hero-right { 
     order: 0; 
     width: 100%; 
     display: flex; 
@@ -554,14 +703,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
     margin: 0 auto; 
   }
 
-  .hero-title-group, .hero-desc, .badge {
-    text-align: center; 
-    margin-left: auto; 
-    margin-right: auto; 
-    max-width: 60vw;
-  }
-
-  .hero-title-group { 
+.hero-title-group { 
     font-size: 2em; 
     margin-bottom: 0.3em; 
   }
@@ -628,6 +770,27 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
     margin-bottom: 3px;
   }
 
+  .choice { 
+    font-size: var(--font-size-choice);
+    min-height: 48px; 
+    padding: 10px 0;
+    margin: 0px 0;
+    font-size: var(--font-size-choice); 
+  }
+
+  #startBtn {
+    padding: 0 1rem;
+    max-width: fit-content;
+    text-align: center;
+  }
+
+  #nextBtn { 
+    font-size: 1.2em; 
+    min-height: 52px; 
+    padding: 16px 16px; 
+    max-width: fit-content;
+   }
+
 }
 
 
@@ -676,6 +839,18 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
     width: auto;
     min-height: auto; 
     }
+
+  #choices { 
+    gap: 0; 
+  }
+
+  .choice { 
+    font-size: 1.1em; 
+    min-height: auto; 
+    padding: 10px 0;
+    margin: 8px 0;
+    font-size: var(--font-size-choice);
+  }
 
 
   #welcome-form {
@@ -802,6 +977,17 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
     margin: 0;
   }
 
+ #question { 
+    font-size: var(--font-size-h4);
+  }
+
+ #quiz-label {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-size-h2);
+  }
+
   .error-message {
     width: 450px;
     max-width: 100%;
@@ -813,5 +999,17 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
     margin-left: 0;
     margin-right: 0;
   }
+
+    .close-x { 
+    top: 16px; 
+    right: 16px; 
+    width: 48px;
+     height: 48px;
+  }
+
+  .close-x__icon { 
+    width: 28px;
+     height: 28px; 
+    }
 
 }
