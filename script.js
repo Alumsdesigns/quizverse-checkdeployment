@@ -181,3 +181,52 @@ const questions = [
     correctQuote: "Leonardo da Vinci painted the Mona Lisa between 1503 and 1519."
   }
 ];
+
+let currentQuestionIndex = 0; 
+let score = 0;                
+let username = '';  
+
+const welcomeScreen = document.getElementById('welcome-screen');
+const quizScreen = document.getElementById('quiz-screen');
+
+const startBtn = document.getElementById('startBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+startBtn.addEventListener('click', startQuiz);
+if (welcomeForm) {
+  welcomeForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    startQuiz();
+  });
+}
+
+const usernameInput = document.getElementById('username');
+const usernameError = document.getElementById('username-error');
+
+if (usernameInput) {
+  usernameInput.addEventListener('input', validateUsername);
+  usernameInput.addEventListener('blur', validateUsername);
+}
+
+const VALIDATION_CONFIG = {
+  MIN_LENGTH: 2,
+  MAX_LENGTH: 50,
+  PATTERNS: {
+    VALID_NAME: /^[A-Za-zÀ-ÿ\s'-]+$/,
+    SUSPICIOUS: [
+      /script/i, /javascript/i, /on\w+\s*=/i, /<[^>]*>/i,
+      /union/i, /select/i, /insert/i, /update/i, /delete/i, /drop/i,
+      /exec/i, /eval/i, /alert/i, /confirm/i, /prompt/i,
+      /document\./i, /window\./i, /location\./i, /history\./i
+    ]
+  },
+  MESSAGES: {
+    EMPTY: 'Please enter your name to continue.',
+    TOO_SHORT: 'Name must be at least 2 characters long.',
+    TOO_LONG: 'Name must be 50 characters or less.',
+    INVALID_CHARS: 'Name can only contain letters, spaces, hyphens, and apostrophes.',
+    INVALID_SPACES: 'Name cannot start or end with spaces, or have multiple consecutive spaces.',
+    SUSPICIOUS: 'Please enter a valid name without special characters.',
+    SUCCESS: 'Name looks good!'
+  }
+};
