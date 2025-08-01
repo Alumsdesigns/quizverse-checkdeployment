@@ -238,3 +238,34 @@ if (closeQuizBtn) {
   });
 }
 
+function showQuestion() {
+  feedbackEl.textContent = '';
+  nextBtn.classList.add('hidden');
+  nextBtn.setAttribute('aria-disabled', 'true');
+  if (closeQuizBtn) closeQuizBtn.style.display = 'flex';
+ 
+ 
+
+  const q = questions[currentQuestionIndex];
+
+  questionEl.textContent = `Q${currentQuestionIndex + 1}: ${q.question}`;
+  choicesEl.innerHTML = '';
+  q.choices.forEach((choice, idx) => {
+    const label = document.createElement('label');
+    label.className = 'choice';
+    const radio = document.createElement('input');
+    radio.type = 'radio';
+    radio.name = 'choice';
+    radio.value = choice;
+    radio.id = `choice-${idx}`;
+    radio.setAttribute('aria-label', choice);
+    radio.onclick = handleAnswer;
+    label.setAttribute('for', `choice-${idx}`);
+    label.appendChild(radio);
+    label.appendChild(document.createTextNode(choice));
+    choicesEl.appendChild(label);
+  });
+
+}
+
+
