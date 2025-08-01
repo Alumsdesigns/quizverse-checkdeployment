@@ -289,6 +289,32 @@ button:focus-visible {
   }
 }
 
+#quiz-label {
+  text-align: left;
+  color: var(--color-base-light);
+  font-size: var(--font-size-h2);
+  max-width: 100%;
+  overflow-wrap: break-word;
+  font-weight: 600;
+  width: 100%;
+  align-self: flex-start;
+  margin: 10px;
+}
+
+#progress-container { 
+  width: 100%; 
+  padding: 0;
+  margin-left: 1.5rem;
+}
+
+#progress {
+  text-align: left;
+  color: var(--color-base-light);
+  font-size: var(--font-size-h3);
+  margin: 1rem 0 1rem 0;
+  overflow-wrap: break-word;
+}
+
 /* Progress Bar and Container */
 #question-container { 
   width: 100%; 
