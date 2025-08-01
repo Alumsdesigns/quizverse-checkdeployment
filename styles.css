@@ -301,18 +301,59 @@ button:focus-visible {
   margin: 10px;
 }
 
-#progress-container { 
-  width: 100%; 
-  padding: 0;
-  margin-left: 1.5rem;
-}
-
 #progress {
   text-align: left;
   color: var(--color-base-light);
   font-size: var(--font-size-h3);
   margin: 1rem 0 1rem 0;
   overflow-wrap: break-word;
+}
+
+#progress-container { 
+  width: 100%; 
+  padding: 0;
+  margin-left: 1.5rem;
+}
+
+#progress-bar {
+  max-width: 70vw;
+  height: var(--progress-bar-height);
+  width: 80%;
+  background: #e3e3e3;
+  border-radius: var(--progress-bar-radius);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(60,60,120,0.08);
+  outline: none;
+  transition: background 0.2s;
+  display: block;
+  margin: 20px 0;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #66bb6a 0%, #4caf50 100%);
+  border-radius: var(--progress-bar-radius) 0 0 var(--progress-bar-radius);
+  transition: width 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+  width: 0%;
+  z-index: 1;
+}
+
+#progress-bar-label {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.95em;
+  font-weight: 700;
+  color: var(--color-base-dark);
+  z-index: 2;
+  pointer-events: none;
+  text-align: left;
+}
+
+#progress-bar[aria-valuenow]:focus {
+  box-shadow: 0 0 0 3px var(--color-primary-dark);
 }
 
 /* Progress Bar and Container */
