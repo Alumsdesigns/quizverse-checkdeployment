@@ -50,6 +50,37 @@
       </div>
     </div>
   </section>
+
+  <section id="quiz-screen" class="screen hidden" aria-labelledby="quiz-label" aria-hidden="true" tabindex="-1">
+    <button id="closeQuizBtn" aria-label="Close Quiz" class="close-x" type="button">
+      <svg class="close-x__icon" viewBox="0 0 28 28" aria-hidden="true" focusable="false">
+        <line x1="7" y1="7" x2="21" y2="21"></line>
+        <line x1="21" y1="7" x2="7" y2="21"></line>
+      </svg>
+      <span class="close-x__label">Close Quiz</span>
+    </button>
+   
+    <header class="quiz-game">
+      <h2 id="quiz-label">Answer the question below</h2>
+    </header>
+    <div id="progress-container">
+      <h3 id="progress"></h3>
+    </div>
+    <div id="question-container">
+      <div id="question-header">
+        <h4 id="question">Question will appear here</h4>
+        
+      </div>
+      <form id="choices" aria-label="Answer choices"></form>
+      <div id="timer" aria-live="polite" role="status"></div>
+      <div id="feedback" role="status" aria-live="polite"></div>
+     
+      <button id="nextBtn" class="hidden" aria-disabled="true">Next Question</button>
+
+    </div>
+  </section>
+
+
 </main>
 
 
