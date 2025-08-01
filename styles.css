@@ -223,6 +223,72 @@ button:focus-visible {
 }
 
 
+/******************************************
+ * Feedback / Progress Bars / Feedback states
+ ******************************************/
+#feedback {
+  font-size: 1em;
+  padding: 10px;
+  margin-top: 15px;
+  font-weight: bold;
+  max-width: 80vw;
+  overflow-wrap: break-word;
+  color: var(--color-base-light);
+  width: fit-content;
+  min-width: 170px;
+}
+
+#feedback.correct {
+  color: var(--color-base-light);
+  background: var(--gradient-feedback-ok);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(60,60,120,0.10);
+  transition: background var(--transition-btn), color var(--transition-btn);
+  margin-left: 10px;
+}
+
+#feedback.incorrect {
+  color: var(--color-base-light);
+  background: var(--gradient-feedback-bad);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(120,60,60,0.10);
+  transition: background var(--transition-btn), color var(--transition-btn);
+  margin-left: 10px;
+}
+
+/* Timer, Question, Label, Progress */
+#timer {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--color-base-light);
+  margin-top: 0.5rem;
+  padding: 10px 15px;
+  background: linear-gradient(90deg, var(--color-error) 0%, var(--color-error-accent) 100%);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(120,60,60,0.10);
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  width: fit-content;
+  margin-left: 10px;
+}
+
+#timer.urgent {
+  animation: flash-red 1s infinite;
+}
+
+@keyframes flash-red {
+  0%, 50% {
+    background: linear-gradient(90deg, #ff0000 0%, #cc0000 100%);
+    box-shadow: 0 2px 8px rgba(255, 0, 0, 0.3);
+  }
+  51%, 100% {
+    background: linear-gradient(90deg, var(--color-error) 0%, var(--color-error-accent) 100%);
+    box-shadow: 0 2px 8px rgba(120,60,60,0.10);
+  }
+}
+
 /* Progress Bar and Container */
 #question-container { 
   width: 100%; 
