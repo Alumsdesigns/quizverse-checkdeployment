@@ -223,3 +223,18 @@ function startQuiz() {
   quizScreen.focus();
 }
 
+nextBtn.addEventListener('click', showNextQuestion);
+
+if (closeQuizBtn) {
+  closeQuizBtn.addEventListener('click', function() {
+    hideScreen(quizScreen);
+    showScreen(welcomeScreen);
+    closeQuizBtn.style.display = 'none';
+    feedbackEl.textContent = '';
+    clearInterval(timerInterval);
+    score = 0;
+    currentQuestionIndex = 0;
+    updateProgressBar();
+  });
+}
+
