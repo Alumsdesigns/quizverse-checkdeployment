@@ -129,6 +129,11 @@ header {
   min-width: unset;
 }
 
+.hidden {
+  display: none;
+  opacity: 0;
+}
+
 /******************************************
  * Buttons 
  ******************************************/
@@ -163,6 +168,12 @@ button:focus-visible {
   box-shadow: 0 4px 16px rgba(60,60,120,0.16);
 }
 
+#startBtn {
+  max-width: fit-content;
+  padding: 24px 24px;
+  margin: 10px;
+}
+
 #nextBtn {
   font-size: 1.2em;
   min-height: 52px;
@@ -170,10 +181,10 @@ button:focus-visible {
   max-width: fit-content;
 }
 
-#startBtn {
+#restartBtn {
   max-width: fit-content;
-  padding: 24px 24px;
-  margin: 10px;
+  padding: 24px;
+  margin: 0;
 }
 
 /* Choices styling */
@@ -209,18 +220,8 @@ button:focus-visible {
 .choice:has(input[type="radio"]:checked) {
   color: var(--color-base-dark);
   font-weight: bold;
-
-#quiz-label {
-  text-align: left;
-  color: var(--color-base-light);
-  font-size: var(--font-size-h2);
-  max-width: 100%;
-  overflow-wrap: break-word;
-  font-weight: 600;
-  width: 100%;
-  align-self: flex-start;
-  margin: 10px;
 }
+
 
 /* Progress Bar and Container */
 #question-container { 
