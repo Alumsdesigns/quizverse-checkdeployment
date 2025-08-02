@@ -1,12 +1,10 @@
-# ADVANCED ONLINE QUIZ CALLED QUIZVERSE
+# QUIZVERSE IS AN ADVANCED ONLINE QUIZ
 
-Advanced Online Quiz is a modern, accessible web app for testing and sharpening your general knowledge. Designed for students, lifelong learners, and anyone who loves a challenge, it features a responsive, mobile-friendly interface and a fun, interactive quiz experience. The site is a single-page application that works on all devices and is easy to use for everyone, including keyboard and screen reader users.
+Advanced Online Quiz is a modern, accessible web app for testing and sharpening your general knowledge. Designed for students, lifelong learners, and anyone who loves a challenge, it's features a responsive, mobile-friendly interface and a fun, interactive quiz experience. The site is a single-page application that works on all devices and is easy to use for everyone.
 
 The primary audience includes students, quiz enthusiasts, and anyone looking to learn or test their general knowledge in a friendly, accessible environment.
 
-<!-- TODO: Replace these with your own screenshots -->
-![Mock-ups Across Devices](assets/screenshots/mockups-across-devices.png)
-![Quiz In Progress](assets/screenshots/quiz-in-progress.png)
+![Mock-ups Across Devices](assets/images/website-live-mockups.png)
 
 [View deployed Website "Advanced Online Quiz"](https://YOUR-DEPLOYED-LINK-HERE)
 
@@ -33,45 +31,94 @@ The primary audience includes students, quiz enthusiasts, and anyone looking to 
 ### Site Users
 As a quiz taker:
 - I want to easily start a quiz and enter my name, so I feel personally engaged.
-- I want to take high-quality general knowledge quizzes that cover a wide range of topics like TV, history, geography, science, etc, so that I can
-test and improve my trivia skills and get ready for pub quizzes or quiz show.
+- I want to take high-quality general knowledge quizzes that cover a wide range of topics like TV, history, geography, science, etc, so that I can test and improve my trivia skills and get ready for pub quizzes or quiz show.
 - I want to see instant feedback after each question, so I know if I was correct.
 - I want a timer for each question, so the quiz feels challenging and fun.
 - I want to see my score at the end, so I can measure my performance.
 - If I get a perfect score, I want a special congratulations message and effect.
 - I want to be able to restart the quiz and try again.
-- I want the quiz to be accessible and usable on any device.
+- I want the quiz to be accessible and usable on any device I own.
 
 ### Site Owner
 As the site owner:
 - I want the quiz to be easy to use and visually appealing, so users enjoy the experience.
 - I want the site to be accessible to all users, including those using assistive technology.
 - I want to retain users 
-- I want to store the user's last score for future visits.
+- I want to encourage the user's to retake the quiz.
 - I want to provide good quality questions.
-- I want user to have fun as tehy quiz 
+- I want user to have fun as they quiz 
 - I want users to learn as they go
-- I want 
+
 
 ---
 
-# 2. Features
-## Current Features
-- **Responsive Design:** Works on all screen sizes and devices.
-- **Accessible UI:** Keyboard navigable, screen reader friendly, visible focus indicators.
-- **Welcome Screen:** Users enter their name to start the quiz.
-- **Timed Questions:** Each question has a countdown timer.
-- **Instant Feedback:** Users see if their answer was correct or not.
-- **Progress Tracking:** Shows current question out of total.
-- **Animated Congratulations:** Special effect for perfect scores.
-- **Restart Option:** Users can retake the quiz.
-- **Skip Link:** For quick keyboard navigation.
-Encouragemnt messages 
+# 2. Current Features
+
+- __F01 Input Element__ The Input element allows Users to enter their name to start the quiz. It has a clear call to action within the box and above it.
+[Input Element](assets/images/input-element.png)
+
+- __F01 Input Element & User Validation__
+    - Users must enter their name to start the quiz.
+    - Name input has built-in real-time validation (length, allowed characters, security checks).
+    - Instant, accessible error messages guide users for invalid input.
+    - All input fields and buttons are keyboard accessible and screen reader friendly.
+    - Clear call to action in the label and button.
+    The Input element allows Users to enter their name to start the quiz. It has a clear call to action within the box and above it.
+    [Input Element Validation Example](assets/images/input-validation-example.png)
+
+
+- __Timed Questions__
+    - Each question features a visible countdown timer for added challenge.
+
+- __Urgency Timer Indicator__  
+    - The countdown timer flashes red and highlights urgency when time left is below 10 seconds, encouraging timely responses.
+
+- __Instant Feedback__
+    - Users immediately see if their answer was correct or not, with color-coded messages and encouraging explanations.
+
+- __Progress Tracking__
+    - Shows the current question number out of total (e.g., "Question 7 of 30").
+    - Dynamic progress bar with percentage correct.
+
+- __Close (X) Button for Quiz Screen__  
+    - Allows users to exit the quiz and return to the welcome screen at any time.  
+    - Fully accessible with keyboard support and screen reader-friendly labels.  
+    - Includes hover and focus visual feedback for clear usability.
+
+
+- __Animated Congratulations__
+    - Special animation and message for perfect (100%) scores.
+    - Encouragement messages for high, average, and lower scores.
+
+- __Restart Option__
+    - Users can retake the quiz immediately after finishing.
+
+- __Skip Link__
+    - Quick keyboard navigation for screen reader and keyboard users.
+
+- __Accessibility__
+    - Form error/status messages announced to assistive technologies.
+    - Proper ARIA roles, high color contrast, full focus control, keyboard navigation.
+
+- __Responsive Design__
+    - Fully responsive UI for mobile, tablet, and desktop.
+
 
 ### Screenshots
-| Welcome Screen | Quiz In Progress 1 | Quiz In Progress 2 | Result Screen 1 | Result Screen 2|
-|:-------------:|:---------------:|:-------------:|:-------------:|
-| ![Welcome](assets/images/mockup-homepage.png) | ![Quiz](assets/images/mockup-page-2.png) | ![Quiz Progress 1](assets/images/mockup-3.png) | ![Quiz progress 2](assets/images/mockup-congrates-1.png) | ![Congrats](assets/images/mockup-congrates-2.png) |
+### Welcome Screen  
+![Welcome Screen](assets/images/welcome-page.png)
+
+### Quiz In Progress 1  
+![Quiz In Progress 1](assets/images/second-page.png)
+
+### Quiz In Progress 2  
+![Quiz In Progress 2](assets/images/third-page.png)
+
+### Result Screen 1  
+![Result Screen 1](assets/images/congratulation-1.png)
+
+### Result Screen 2  
+![Result Screen 2](assets/images/congratulation-2.png)
 
 ### Features which could be implemented in the future
 - More question categories and difficulty levels
@@ -87,8 +134,6 @@ Encouragemnt messages
 - Encourage users to share and recommend the platform.
 
 
-
-
 ---
 
 # 3. Design
@@ -96,20 +141,21 @@ Encouragemnt messages
 The app is a single-page application with three main views: Welcome, Quiz, and Results. All views are accessible and responsive.
 
 ## Wireframes
-- [Welcome Screen Wireframe](assets/images/wireframe-home-page.png)
-- [Quiz Screen Wireframe](assets/images/wireframe-page-2.png)
-- [Quiz Progress 1 Screen Wireframe](assets/images/wireframe-page-3.png)
-- [Quiz Progress 2 Screen Wireframe](assets/images/wireframe-progress-result.png)
-- [Result Screen Wireframe](assets/images/wireframe-results-page.png)
+- [Welcome Screen Wireframe](assets/images/wireframe-welcome-page.png)
+- [Quiz Screen Wireframe](assets/images/wireframe-2.png)
+- [Quiz Progress 1 Screen Wireframe](assets/images/wireframe-3.png)
+- [Quiz Progress 2 Screen Wireframe](assets/images/wireframe-congrates1.png)
+- [Result Screen Wireframe](assets/images/wireframe-congrates2.png)
 
 
 ## Colour Scheme
-![Colour Palette](assets/images/colour-primary.png)
-![Colour Palette](assets/images/colour-secondary.png)
+![Colour Palette](assets)
+![Colour Palette](assets)
 
 The color palette was chosen for high contrast and readability, ensuring accessibility for all users.
 
 ## Typography
+- Uses google fonts
 - Uses system fonts for fast loading and readability.
 - Large, clear headings and buttons for easy navigation.
 - Primary Font: 'Lato', sans-serif
@@ -117,8 +163,8 @@ The color palette was chosen for high contrast and readability, ensuring accessi
 - Button/Choice Font: 'Roboto', sans-serif
 
 ## Imagery
-<!-- TODO: Add your own screenshots and update alt text -->
-All images and icons are designed to be clear and accessible. Replace placeholder images with your own screenshots.
+
+All images and icons are designed to be clear and accessible. 
 ![Images] 
 
 ---
@@ -145,13 +191,14 @@ This project was tested for:
 - Responsiveness on mobile, tablet, and desktop
 - HTML and CSS validation using W3C tools
 
+
 ## HTML Validation
 All HTML validation issues have been resolved:
-- ✅ Removed trailing slashes from void elements (`<meta>`, `<link>`, `<input>`, `<img>`, `<line>`)
-- ✅ Removed unnecessary `role="region"` from `<section>` elements
-- ✅ Fixed invalid `role="group"` on form elements
-- ✅ Added content to empty heading elements
-- ✅ Removed potentially misused `aria-label` attributes
+-  Removed trailing slashes from void elements (`<meta>`, `<link>`, `<input>`, `<img>`, `<line>`)
+-  Removed unnecessary `role="region"` from `<section>` elements
+-  Fixed invalid `role="group"` on form elements
+-  Added content to empty heading elements
+-  Removed potentially misused `aria-label` attributes
 
 | Test | Screenshot |
 |------|------------|
@@ -159,12 +206,34 @@ All HTML validation issues have been resolved:
 | HTML Validation | ![HTML Erros fixed](assets/screenshots/html-validation-complete.png) |
 
 ## CSS Validation
-- ✅ All CSS validation passed without errors:
+- All CSS validation passed without errors:
 
 
 | Test | Screenshot |
 |------|------------|
 | CSS Validation | ![CSS Valid](assets/screenshots/css-valid.png) |
+
+
+
+## Manual User Testing Table
+
+| Test Case ID | Test Description                                      | Input Data           | Expected Result                                                                 | Actual Result | Pass/Fail |
+|--------------|--------------------------------------------------------|----------------------|----------------------------------------------------------------------------------|---------------|-----------|
+| TC01         | Enter user name and start quiz                         | "Damaris"            | Quiz starts and welcome message includes user’s name                             | As expected   | Pass      |
+| TC02         | Submit answer before timer ends                        | Correct/Incorrect    | Feedback shown instantly ("Correct"/"Incorrect") and next question appears       | As expected   | Pass      |
+| TC03         | Wait for timer to run out without answering            | No input             | Timeout message shown and question marked incorrect                              | As expected   | Pass      |
+| TC04         | Complete all questions                                 | All answers          | Score and result screen shown, includes restart option                           | As expected   | Pass      |
+| TC05         | Get perfect score                                      | All correct answers  | Congratulations message and animation shown                                      | As expected   | Pass      |
+| TC06         | Click "Restart" on result screen                       | Click restart button | Quiz resets and returns to welcome screen                                        | As expected   | Pass      |
+| TC07         | Navigate entire quiz using keyboard only               | Tab, Enter keys      | Full quiz is operable via keyboard                                               | As expected   | Pass      |
+| TC08         | Use screen reader for quiz                             | Screen reader on     | All interactive elements are announced and labeled correctly                     | As expected   | Pass      |
+| TC09         | Resize window for responsiveness                       | Mobile & Desktop     | Layout adapts to different screen sizes                                          | As expected   | Pass      |
+| TC10         | Test input field validation                            | Empty or invalid     | Alert shown if name field is left blank                                          | As expected   | Pass      |
+| TC11         | Accessibility: Skip link focus test                    | Press Tab key        | Skip link is visible and allows user to skip to main content                     | As expected   | Pass      |
+| TC12         | Refresh page mid-quiz                                  | Browser refresh      | Page resets, quiz starts from welcome screen                                     | As expected   | Pass      |
+| TC13         | Browser compatibility                                  | Chrome, Firefox, etc | Site works correctly in all major browsers                                       | As expected   | Pass      |
+| TC14         | CSS and animation effects on result                    | Finish quiz          | Animations load smoothly without lag                                             | As expected   | Pass      |
+| TC15         | Accessibility: Color contrast and font readability     | Visual check         | All text has sufficient contrast and readable font sizes                         | As expected   | Pass      |
 
 ---
 
@@ -178,7 +247,7 @@ The site is deployed on GitHub Pages.
 ## Local Development
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Alumsdesigns/quiz-project.git
+   git clone https://github.com/Alumsdesigns/quizverse.git
    cd quiz-project
    ```
 2. Open `index.html` in your browser. No build step required.
@@ -194,7 +263,6 @@ The site is deployed on GitHub Pages.
 - All quiz questions and content written by Damaris Alum.
 
 ## Media
-<!-- TODO: Replace with your own image sources if needed -->
 - All screenshots and images are original or sourced from free resources.
 - Quiz hero image by Kohji Asakawa from Pixabay.  
   [Pixabay profile](https://pixabay.com/users/kohjiasakawa-1203821/)  
@@ -207,7 +275,7 @@ The site is deployed on GitHub Pages.
 
 # 8. Best Practices
 
-## 🎯 Development Standards
+## Development Standards
 
 ### Accessibility
 - **ARIA Compliance**: All interactive elements include proper ARIA attributes
@@ -238,7 +306,7 @@ The site is deployed on GitHub Pages.
 - **Mobile Responsive**: Optimized for all screen sizes
 - **Progressive Web App Ready**: Can be easily converted to PWA
 
-## 🔧 Technical Implementation
+## 9. Technical Implementation
 
 ### Validation System
 - **Configuration object** for easy maintenance
@@ -258,4 +326,3 @@ The site is deployed on GitHub Pages.
 - **High contrast** error messages
 - **Semantic structure** for assistive technology
 
-This approach ensures the quiz is **secure**, **accessible**, **user-friendly**, and **maintainable** - following industry best practices for modern web development! 🚀
