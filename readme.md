@@ -388,7 +388,7 @@ The site is deployed on GitHub Pages.
 - **High contrast** error messages
 - **Semantic structure** for assistive technology
 
-## Acknowledgements
+# Acknowledgements
 - Thanks to MDN, W3Schools, and WebAIM for accessibility guidance.
 - Thanks also to code institute and w3schools for their support
 
