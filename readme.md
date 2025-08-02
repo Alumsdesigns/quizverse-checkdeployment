@@ -11,7 +11,7 @@ The primary audience includes students, quiz enthusiasts, and anyone looking to 
 # Contents
 1. [User Experience (UX)](#1-user-experience-ux)
     - [User Stories](#user-stories)
-        - [Quiz Takers](#quiz-takers)
+        - [Site Users](#site-users)
         - [Site Owner](#site-owner)
 2. [Features](#2-features)
     - [Current Features](#current-features)
