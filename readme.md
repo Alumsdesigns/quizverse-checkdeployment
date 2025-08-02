@@ -6,7 +6,7 @@ The primary audience includes students, quiz enthusiasts, and anyone looking to 
 
 ![Mock-ups Across Devices](assets/images/website-live-mockups.png)
 
-[View deployed Website "Quizverse"](https://your-username.github.io/quizverse/)
+[View deployed Website "Quizverse"](https://alumsdesigns.github.io/quizverse/)
 
 # Contents
 1. [User Experience (UX)](#1-user-experience-ux)
