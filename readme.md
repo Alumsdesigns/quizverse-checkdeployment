@@ -104,7 +104,7 @@ As the site owner:
     - Fully responsive UI for mobile, tablet, and desktop.
 
 
-### Screenshots
+### Screens
 ### Welcome Screen  
 
 - The welcome page is the entry point, designed to engage users and provide a clear call to action.
