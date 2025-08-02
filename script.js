@@ -249,6 +249,133 @@ const VALIDATION_CONFIG = {
   }
 };
 
+
+
+
+function validateUsername() {
+  const input = usernameInput.value.trim();
+  const errorElement = usernameError;
+  
+  clearValidationError(errorElement);
+  
+  try {
+    if (!validateNotEmpty(input)) {
+      showValidationError(errorElement, VALIDATION_CONFIG.MESSAGES.EMPTY);
+      return false;
+    }
+    
+    if (!validateLength(input)) {
+      return false;
+    }
+    
+    if (!validateCharacters(input)) {
+      return false;
+    }
+    
+    if (!validateSpacing(input)) {
+      return false;
+    }
+    
+    if (!validateSecurity(input)) {
+      return false;
+    }
+    
+    return true;
+    
+  } catch (error) {
+    console.error('Validation error:', error);
+    showValidationError(errorElement, 'An unexpected error occurred. Please try again.');
+    return false;
+  }
+}
+
+function validateNotEmpty(input) {
+  return input.length > 0;
+}
+
+function validateLength(input) {
+  if (input.length < VALIDATION_CONFIG.MIN_LENGTH) {
+    showValidationError(usernameError, VALIDATION_CONFIG.MESSAGES.TOO_SHORT);
+    return false;
+  }
+  
+  if (input.length > VALIDATION_CONFIG.MAX_LENGTH) {
+    showValidationError(usernameError, VALIDATION_CONFIG.MESSAGES.TOO_LONG);
+    return false;
+  }
+  
+  return true;
+}
+
+function validateCharacters(input) {
+  if (!VALIDATION_CONFIG.PATTERNS.VALID_NAME.test(input)) {
+    showValidationError(usernameError, VALIDATION_CONFIG.MESSAGES.INVALID_CHARS);
+    return false;
+  }
+  return true;
+}
+
+function validateSpacing(input) {
+  const hasLeadingTrailingSpaces = input.startsWith(' ') || input.endsWith(' ');
+  const hasMultipleSpaces = input.includes('  ');
+  
+  if (hasLeadingTrailingSpaces || hasMultipleSpaces) {
+    showValidationError(usernameError, VALIDATION_CONFIG.MESSAGES.INVALID_SPACES);
+    return false;
+  }
+  return true;
+}
+
+function validateSecurity(input) {
+  for (const pattern of VALIDATION_CONFIG.PATTERNS.SUSPICIOUS) {
+    if (pattern.test(input)) {
+      showValidationError(usernameError, VALIDATION_CONFIG.MESSAGES.SUSPICIOUS);
+      return false;
+    }
+  }
+  return true;
+}
+
+function clearValidationError(errorElement) {
+  if (!errorElement) return;
+  errorElement.textContent = '';
+  errorElement.className = 'error-message';
+  errorElement.style.display = '';
+}
+
+function showValidationError(errorElement, message) {
+  if (!errorElement) return;
+  errorElement.textContent = message;
+  errorElement.className = 'error-message error-active';
+  errorElement.style.display = 'block';
+  errorElement.style.transform = 'translateX(5px)';
+  setTimeout(() => {
+    errorElement.style.transform = 'translateX(0)';
+  }, 200);
+}
+
+function showValidationSuccess(errorElement) {
+  if (!errorElement) return;
+  errorElement.textContent = VALIDATION_CONFIG.MESSAGES.SUCCESS;
+  errorElement.className = 'error-message success-message';
+  setTimeout(() => {
+    if (errorElement.textContent === VALIDATION_CONFIG.MESSAGES.SUCCESS) {
+      clearValidationError(errorElement);
+    }
+  }, 2000);
+}
+
+function sanitizeInput(input) {
+  return input
+    .trim()
+    .replace(/[<>]/g, '')
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;')
+    .replace(/\//g, '&#x2F;');
+}
+
+
 function startQuiz() {
   const nameInput = document.getElementById('username');
   const inputValue = nameInput.value.trim();
