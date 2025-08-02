@@ -104,7 +104,7 @@ As the site owner:
     - Fully responsive UI for mobile, tablet, and desktop.
 
 
-### Screens & features explained in dept
+### Mockups Screenshots from Figma & features explained in dept
 ### Welcome Screen  
 
 - The welcome page is the entry point, designed to engage users and provide a clear call to action.
@@ -187,6 +187,7 @@ The app is a single-page application with three main views: Welcome, Quiz, and R
 - [Quiz Progress 2 Screen Wireframe](assets/images/wireframe-congrates1.png)
 - [Result Screen Wireframe](assets/images/wireframe-congrates2.png)
 
+User testing was completed and improvements added to highlevel mockups seen in the screenshots above under the features section.
 
 ## Colour Scheme
 #### Primary and Secondary Colors 
