@@ -250,8 +250,6 @@ const VALIDATION_CONFIG = {
 };
 
 
-
-
 function validateUsername() {
   const input = usernameInput.value.trim();
   const errorElement = usernameError;
@@ -379,6 +377,11 @@ function sanitizeInput(input) {
 function startQuiz() {
   const nameInput = document.getElementById('username');
   const inputValue = nameInput.value.trim();
+
+  if (!validateUsername()) {
+    nameInput.focus();
+    return;
+  }
   
   username = sanitizeInput(inputValue);
   score = 0;
@@ -393,6 +396,8 @@ function startQuiz() {
 
 nextBtn.addEventListener('click', showNextQuestion);
 
+restartBtn.addEventListener('click', resetQuiz);
+
 if (closeQuizBtn) {
   closeQuizBtn.addEventListener('click', function() {
     hideScreen(quizScreen);
@@ -406,16 +411,21 @@ if (closeQuizBtn) {
   });
 }
 
+  if (!validateUsername()) {
+    nameInput.focus();
+    return;
+  }
+
+
 function showQuestion() {
   feedbackEl.textContent = '';
   nextBtn.classList.add('hidden');
   nextBtn.setAttribute('aria-disabled', 'true');
   if (closeQuizBtn) closeQuizBtn.style.display = 'flex';
- 
- 
-
+  timeRemaining = totalTimePerQuestion;
+  updateTimerDisplay();
+  startTimer();
   const q = questions[currentQuestionIndex];
-
   questionEl.textContent = `Q${currentQuestionIndex + 1}: ${q.question}`;
   choicesEl.innerHTML = '';
   q.choices.forEach((choice, idx) => {
@@ -433,7 +443,163 @@ function showQuestion() {
     label.appendChild(document.createTextNode(choice));
     choicesEl.appendChild(label);
   });
-
+  updateProgress();
 }
 
+function handleAnswer() {
+  clearInterval(timerInterval);
+  timerEl.classList.remove('urgent');
+  
+  const selected = document.querySelector('input[name="choice"]:checked');
+  if (!selected) return;
+  const answer = selected.value;
+  const correctAnswer = questions[currentQuestionIndex].answer;
+  feedbackEl.classList.remove('correct', 'incorrect');
+  if (answer === correctAnswer) {
+    feedbackEl.textContent = `Correct! ${questions[currentQuestionIndex].correctQuote}`;
+    feedbackEl.classList.add('correct');
+    score++;
+  } else {
+    feedbackEl.textContent = `Incorrect! The correct answer is ${correctAnswer}.`;
+    feedbackEl.classList.add('incorrect');
+  }
+  document.querySelectorAll('input[name="choice"]').forEach(input => {
+    input.disabled = true;
+    if (input.value === correctAnswer) {
+      input.parentElement.style.backgroundColor = '#d4edda';
+    }
+  });
+  nextBtn.classList.remove('hidden');
+  nextBtn.setAttribute('aria-disabled', 'false');
+  updateProgressBar();
+}
 
+function showNextQuestion() {
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    showQuestion();
+  } else {
+    showResults();
+  }
+}
+
+function showResults() {
+  hideScreen(quizScreen);
+  
+  const percent = Math.round((score / questions.length) * 100);
+  
+  const congrats = document.getElementById('congrats');
+  if (congrats) {
+    if (score === questions.length) {
+      const congratsText = congrats.querySelector('.congrats-text');
+      if (congratsText) {
+        congratsText.textContent = `${username}, your score is ${score} out of ${questions.length}, ${percent}%! Perfect! Ready for another round?`;
+      }
+      congrats.hidden = false;
+      congrats.setAttribute('aria-live', 'polite');
+    } else if (percent >= 80) {
+      const congratsText = congrats.querySelector('.congrats-text');
+      if (congratsText) {
+        congratsText.textContent = `${username}, your score is ${score} out of ${questions.length}, ${percent}%! Try again for perfect?`;
+      }
+      congrats.hidden = false;
+      congrats.setAttribute('aria-live', 'polite');
+    } else if (percent >= 50) {
+      const congratsText = congrats.querySelector('.congrats-text');
+      if (congratsText) {
+        congratsText.textContent = `${username}, your score is ${score} out of ${questions.length}, ${percent}%! Good effort! Keep practicing!`;
+      }
+      congrats.hidden = false;
+      congrats.setAttribute('aria-live', 'polite');
+    } else {
+      const congratsText = congrats.querySelector('.congrats-text');
+      if (congratsText) {
+        congratsText.textContent = `${username}, your score is ${score} out of ${questions.length}, ${percent}%! Well done, practice makes perfect!`;
+      }
+      congrats.hidden = false;
+      congrats.setAttribute('aria-live', 'polite');
+    }
+  }
+  
+  localStorage.setItem('lastScore', score);
+  showScreen(resultScreen);
+}
+
+function resetQuiz() {
+  hideScreen(resultScreen);
+  showScreen(welcomeScreen);
+  document.getElementById('username').value = '';
+  if (usernameError) usernameError.textContent = '';
+  feedbackEl.textContent = '';
+  clearInterval(timerInterval);
+  if (closeQuizBtn) closeQuizBtn.style.display = 'none';
+  const congrats = document.getElementById('congrats');
+  if (congrats) congrats.hidden = true;
+  score = 0;
+  currentQuestionIndex = 0;
+  updateProgressBar();
+}
+
+function showScreen(screen) {
+  screen.classList.remove('hidden');
+  screen.setAttribute('aria-hidden', 'false');
+}
+
+function hideScreen(screen) {
+  screen.classList.add('hidden');
+  screen.setAttribute('aria-hidden', 'true');
+}
+
+function startTimer() {
+  timerEl.textContent = `${timeRemaining} remaining seconds`;
+  timerInterval = setInterval(() => {
+    timeRemaining--;
+    updateTimerDisplay();
+    if (timeRemaining <= 0) {
+      clearInterval(timerInterval);
+      handleTimeout();
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  timerEl.textContent = `${timeRemaining} remaining seconds`;
+  
+  if (timeRemaining <= 10) {
+    timerEl.classList.add('urgent');
+  } else {
+    timerEl.classList.remove('urgent');
+  }
+}
+
+function handleTimeout() {
+  feedbackEl.textContent = `Time's up! The correct answer was ${questions[currentQuestionIndex].answer}.`;
+  feedbackEl.classList.remove('correct');
+  feedbackEl.classList.add('incorrect');
+  feedbackEl.style.color = '#fff';
+
+  document.querySelectorAll('input[name="choice"]').forEach(input => {
+    input.disabled = true;
+    if (input.value === questions[currentQuestionIndex].answer) {
+      input.parentElement.style.backgroundColor = '#d4edda';
+    }
+  });
+  nextBtn.classList.remove('hidden');
+  nextBtn.setAttribute('aria-disabled', 'false');
+}
+
+function updateProgress() {
+  if (progressEl) {
+    progressEl.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
+  }
+}
+function updateProgressBar() {
+  const progressBarFill = document.querySelector('.progress-bar-fill');
+  if (!progressBarContainer || !progressBar || !progressBarLabel || !progressBarFill) return;
+  progressBarContainer.classList.remove('hidden');
+  const percent = Math.round((score / questions.length) * 100);
+  progressBar.setAttribute('aria-valuenow', percent);
+  progressBarLabel.textContent = `${percent}% Correct`;
+  progressBarFill.style.width = percent + '%';
+  progressBar.setAttribute('aria-valuetext', `${percent}% correct answers`);
+}
