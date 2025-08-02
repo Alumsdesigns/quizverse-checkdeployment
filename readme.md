@@ -266,7 +266,6 @@ The site is deployed on GitHub Pages.
 - All screenshots and images are original or sourced from free resources.
 - Quiz hero image by Kohji Asakawa from Pixabay.  
   [Pixabay profile](https://pixabay.com/users/kohjiasakawa-1203821/)  
-  [Original image link](https://pixabay.com/illustrations/question-mark-question-symbol-2492009/)
 
 ## Acknowledgements
 - Thanks to MDN, W3Schools, and WebAIM for accessibility guidance.
