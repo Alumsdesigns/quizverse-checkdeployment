@@ -15,7 +15,7 @@ The primary audience includes students, quiz enthusiasts, and anyone looking to 
         - [Site Owner](#site-owner)
 2. [Features](#2-features)
     - [Current Features](#current-features)
-    - [Future Features](#features-which-could-be-implemented-in-the-future)
+    - [Future Features](#future-features)(#features-which-could-be-implemented-in-the-future)
 3. [Design](#3-design)
 4. [Technologies Used](#4-technologies-used)
 5. [Testing](#5-testing)
@@ -120,7 +120,8 @@ As the site owner:
 ### Result Screen 2  
 ![Result Screen 2](assets/images/congratulation-2.png)
 
-### Features which could be implemented in the future
+### Future Features
+In the future we could add the following features
 - More question categories and difficulty levels
 - Offer engaging quizzes that encourage repeat visits.
 - High score leaderboard
