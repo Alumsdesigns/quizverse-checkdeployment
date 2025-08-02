@@ -368,7 +368,7 @@ The site is deployed on GitHub Pages.
 - **Mobile Responsive**: Optimized for all screen sizes
 - **Progressive Web App Ready**: Can be easily converted to PWA
 
-## 9. Technical Implementation
+# 9. Technical Implementation
 
 ### Validation System
 - **Configuration object** for easy maintenance
