@@ -306,7 +306,7 @@ The site is deployed on GitHub Pages.
 1. Clone the repository:
    ```bash
    git clone https://github.com/Alumsdesigns/quizverse.git
-   cd quiz-project
+   cd quizverse
    ```
 2. Open `index.html` in your browser. No build step required.
 
