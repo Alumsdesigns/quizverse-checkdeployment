@@ -411,11 +411,6 @@ if (closeQuizBtn) {
   });
 }
 
-  if (!validateUsername()) {
-    nameInput.focus();
-    return;
-  }
-
 
 function showQuestion() {
   feedbackEl.textContent = '';
