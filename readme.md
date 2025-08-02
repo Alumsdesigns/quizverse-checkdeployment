@@ -334,10 +334,6 @@ The site is deployed on GitHub Pages.
 - Quiz hero image by Kohji Asakawa from Pixabay.  
   [Pixabay profile](https://pixabay.com/users/kohjiasakawa-1203821/)  
 
-## Acknowledgements
-- Thanks to MDN, W3Schools, and WebAIM for accessibility guidance.
-
----
 
 # 8. Best Practices
 
@@ -393,4 +389,7 @@ The site is deployed on GitHub Pages.
 - **Semantic structure** for assistive technology
 
 ## Acknowledgements
-- Thanks to code institute and w3schools for their support
+- Thanks to MDN, W3Schools, and WebAIM for accessibility guidance.
+- Thanks also to code institute and w3schools for their support
+
+---
