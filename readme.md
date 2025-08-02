@@ -106,19 +106,58 @@ As the site owner:
 
 ### Screenshots
 ### Welcome Screen  
+
+- The welcome page is the entry point, designed to engage users and provide a clear call to action.
+
+- **User Input:** An input field allows users to enter their name, making the quiz a personalized experience.
+
+- **Form Validation:** The input field includes client-side validation to ensure a valid name is entered before the quiz can start. An active error message with a "shake" animation provides clear feedback.
+
+- **Responsive Hero Section:** A visually appealing hero section with a title and a descriptive paragraph gives users a brief overview of the quiz. A floating illustration adds a subtle, modern touch.
+
+- **"Start Quiz Now"** Button: A prominent button guides users to start the quiz once their name is entered.
 ![Welcome Screen](assets/images/welcome-page.png)
 
-### Quiz In Progress 1  
+### Quiz Screen
+- This is the main interactive section of the app, built to be engaging and user-friendly.
+
+- **Question and Choices:** Displays one question at a time with multiple-choice answers that are clear and easy to select.
+
+- **Next Question Button:** The button to advance is initially hidden and only appears after a user has selected an answer. This ensures users receive and process feedback before moving on.
+
+- **Instant Feedback:** After a user selects an answer, the app provides immediate feedback, indicating whether the choice was correct or incorrect. With add general knowledge quote.
+
+- **Progress Tracking:** Users can see their progress through the quiz with a progress bar and a question counter (e.g., "Question 5 of 10").
+
+- **Countdown Timer:** Each question includes a timer to add an element of challenge. The timer flashes a warning color when time is running out.
+
+- **Close Button:** A universal "X" button is available on the quiz screen, allowing users to exit the quiz at any time and return to the welcome screen. 
+
+Coorect answer image example:
 ![Quiz In Progress 1](assets/images/second-page.png)
 
-### Quiz In Progress 2  
+
+Incorrect answer image example with alert red:
 ![Quiz In Progress 2](assets/images/third-page.png)
 
-### Result Screen 1  
-![Result Screen 1](assets/images/congratulation-1.png)
 
-### Result Screen 2  
+### Result Screen 
+
+- The final screen provides a summary of the user's performance and an opportunity to retake the quiz.
+
+- **Final Score:** Displays the user's total score after all questions have been answered.
+
+- **Animated Congratulations:** If a user achieves a perfect score, a special celebratory message with a "pop-in" animation and emoji is displayed.
+
+- **Restart Option:** A prominent "Restart Quiz" button allows users to easily play again, encouraging repeat visits.
 ![Result Screen 2](assets/images/congratulation-2.png)
+
+### Additional Features
+- **Accessibility:** The site is designed with accessibility in mind, including a skip link for keyboard navigation, clear focus states, and ARIA attributes for screen reader support.
+
+- **Responsive Design:** The layout is fully responsive and optimized for a consistent user experience on mobile, tablet, and desktop devices.
+
+- **Visual Design:** The site uses a consistent and appealing color palette, with elegant typography and subtle animations to enhance the user interface
 
 ### Future Features
 In the future we could add the following features
@@ -252,7 +291,7 @@ All HTML validation issues have been resolved:
     - Edge Version 90.0.818.62 (Official build) (64-bit)
     - Safari on macOS Catalina (Safari  Version 14.0.3)
 
-    
+
 ---
 
 
