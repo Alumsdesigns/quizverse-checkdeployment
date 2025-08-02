@@ -15,7 +15,7 @@ The primary audience includes students, quiz enthusiasts, and anyone looking to 
         - [Site Owner](#site-owner)
 2. [Features](#2-features)
     - [Current Features](#current-features)
-    - [Future Features](#future-features)(#features-which-could-be-implemented-in-the-future)
+    - [Future Features](#future-features)
 3. [Design](#3-design)
 4. [Technologies Used](#4-technologies-used)
 5. [Testing](#5-testing)
@@ -52,7 +52,9 @@ As the site owner:
 
 ---
 
-# 2. Current Features
+# 2. Features
+
+### Current Features
 
 - __F01 Input Element__ The Input element allows Users to enter their name to start the quiz. It has a clear call to action within the box and above it.
 [Input Element](assets/images/input-element.png)
@@ -65,7 +67,6 @@ As the site owner:
     - Clear call to action in the label and button.
     The Input element allows Users to enter their name to start the quiz. It has a clear call to action within the box and above it.
     [Input Element Validation Example](assets/images/input-validation-example.png)
-
 
 - __Timed Questions__
     - Each question features a visible countdown timer for added challenge.
@@ -84,7 +85,6 @@ As the site owner:
     - Allows users to exit the quiz and return to the welcome screen at any time.  
     - Fully accessible with keyboard support and screen reader-friendly labels.  
     - Includes hover and focus visual feedback for clear usability.
-
 
 - __Animated Congratulations__
     - Special animation and message for perfect (100%) scores.
