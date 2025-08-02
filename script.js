@@ -184,7 +184,7 @@ const questions = [
 
 let currentQuestionIndex = 0; 
 let score = 0;                
-let username = '';  
+let username = '';            
 let timerInterval;            
 const totalTimePerQuestion = 20; 
 let timeRemaining = totalTimePerQuestion;
@@ -209,6 +209,7 @@ const feedbackEl = document.getElementById('feedback');
 const finalScoreEl = document.getElementById('finalScore');
 const timerEl = document.getElementById('timer');
 const progressEl = document.getElementById('progress');
+
 
 startBtn.addEventListener('click', startQuiz);
 if (welcomeForm) {
@@ -248,7 +249,6 @@ const VALIDATION_CONFIG = {
     SUCCESS: 'Name looks good!'
   }
 };
-
 
 function validateUsername() {
   const input = usernameInput.value.trim();
@@ -373,11 +373,10 @@ function sanitizeInput(input) {
     .replace(/\//g, '&#x2F;');
 }
 
-
 function startQuiz() {
   const nameInput = document.getElementById('username');
   const inputValue = nameInput.value.trim();
-
+  
   if (!validateUsername()) {
     nameInput.focus();
     return;
@@ -395,9 +394,7 @@ function startQuiz() {
 }
 
 nextBtn.addEventListener('click', showNextQuestion);
-
 restartBtn.addEventListener('click', resetQuiz);
-
 if (closeQuizBtn) {
   closeQuizBtn.addEventListener('click', function() {
     hideScreen(quizScreen);
@@ -410,7 +407,6 @@ if (closeQuizBtn) {
     updateProgressBar();
   });
 }
-
 
 function showQuestion() {
   feedbackEl.textContent = '';

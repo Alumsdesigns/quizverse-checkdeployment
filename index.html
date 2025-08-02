@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quizverse Online Quiz</title>
+<title>Advanced Online Quiz</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -39,13 +39,14 @@
           >
           <div id="username-error" class="error-message" role="alert" aria-live="polite"></div>
           <button id="startBtn" aria-pressed="false" type="submit">
+            <!-- TODO: Add play icon SVG here if desired -->
             Start Quiz Now
           </button>
         </form>
       </div>
       <div class="hero-right">
         <div class="hero-img-wrapper">
-          <img src="assets/images/brain.png" alt="quiz illustration" class="hero-img">
+          <img src="assets/images/brain.png" alt="Quiz illustration" class="hero-img">
         </div>
       </div>
     </div>
@@ -87,7 +88,8 @@
     </div>
   </section>
 
-    <section id="result-screen" class="screen hidden" aria-labelledby="result-label" aria-hidden="true" tabindex="-1">
+  
+  <section id="result-screen" class="screen hidden" aria-labelledby="result-label" aria-hidden="true" tabindex="-1">
     <header>
       <h2 id="result-label">Quiz Completed!</h2>
     </header>
@@ -105,7 +107,7 @@
   <div class="stat"><span class="stat-num">15</span><span class="stat-label">General Knowledge Questions</span></div>
   <div class="stat"><span class="stat-num">15</span><span class="stat-label">Entertainment Questions</span></div>
 </div>
-
 <script src="script.js"></script>
+<script src="test.js"></script>
 </body>
 </html>

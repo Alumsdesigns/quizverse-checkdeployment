@@ -7,19 +7,16 @@
   --color-secondary: #9575cd;
   --color-secondary-light: #d1c4e9;
   --color-accent: #ffd600;
-  --color-success: #0aba83; 
+  --color-success: #0aba83;
   --color-success-dark: #185a9d;
-  --color-validation: ##2e7d32; 
   --color-error: #ff5858;
-  --color-border: #d32f2f; 
   --color-error-accent: #f09819;
   --color-info-bg: #e3f2fd;
   --color-bg: #f0f4f8;
   --color-base-light: #fafafa;
   --color-base-dark: #1a1a1a;
   --color-soft-black: #333;
-  --color-placeholder: #888;
-  --color-hero-title-accent: #006837;
+  --color-muted-text: #888;
 
   /* --- Typography --- */
   --font-main: 'Lato', Arial, Helvetica, sans-serif;
@@ -69,6 +66,7 @@
 /*****************************************
  * Base and Layout
  *****************************************/
+
 html {
   font-size: var(--font-size-base);
 }
@@ -81,6 +79,7 @@ body {
   line-height: 1.6;
 }
 
+/* Headings & Typography */
 h1, h2, h3, h4, h5, h6, p {
   margin-top: 0;
   font-family: var(--font-heading);
@@ -100,10 +99,7 @@ h3 {
   margin-bottom: 0.75rem;
 }
 
-header {
-  width: 100%;
-}
-
+/* Container */
 .container {
   overflow: hidden;
   min-height: 85vh;
@@ -119,11 +115,12 @@ header {
   padding-bottom: 20px;
 }
 
+/* Main Screens */
 .screen {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: opacity var(--transition-btn) ease;
+  transition: opacity var(--transition-default) ease;
   padding: 0;
   width: 100%;
   min-width: unset;
@@ -135,7 +132,7 @@ header {
 }
 
 /******************************************
- * Buttons 
+ * Buttons & Choices
  ******************************************/
 button {
   font-size: 1em;
@@ -168,12 +165,6 @@ button:focus-visible {
   box-shadow: 0 4px 16px rgba(60,60,120,0.16);
 }
 
-#startBtn {
-  max-width: fit-content;
-  padding: 24px 24px;
-  margin: 10px;
-}
-
 #nextBtn {
   font-size: 1.2em;
   min-height: 52px;
@@ -185,6 +176,12 @@ button:focus-visible {
   max-width: fit-content;
   padding: 24px;
   margin: 0;
+}
+
+#startBtn {
+  max-width: fit-content;
+  padding: 24px 24px;
+  margin: 10px;
 }
 
 /* Choices styling */
@@ -289,6 +286,10 @@ button:focus-visible {
   }
 }
 
+header {
+  width: 100%;
+}
+
 #quiz-label {
   text-align: left;
   color: var(--color-base-light);
@@ -301,6 +302,12 @@ button:focus-visible {
   margin: 10px;
 }
 
+#progress-container { 
+  width: 100%; 
+  padding: 0;
+  margin-left: 1.5rem;
+}
+
 #progress {
   text-align: left;
   color: var(--color-base-light);
@@ -309,10 +316,24 @@ button:focus-visible {
   overflow-wrap: break-word;
 }
 
-#progress-container { 
+/* Progress Bar and Container */
+#question-container { 
   width: 100%; 
-  padding: 0;
-  margin-left: 1.5rem;
+}
+
+#question {
+  font-size: var(--font-size-h4);
+  margin: 10px 10px 0 10px;
+  color: var(--color-base-light);
+  text-align: left;
+  overflow-wrap: break-word;
+}
+
+#progress-bar-container {
+  width: 100%;
+  margin: 8px 0 0 0;
+  display: block;
+  margin-left: 10px;
 }
 
 #progress-bar {
@@ -354,19 +375,6 @@ button:focus-visible {
 
 #progress-bar[aria-valuenow]:focus {
   box-shadow: 0 0 0 3px var(--color-primary-dark);
-}
-
-/* Progress Bar and Container */
-#question-container { 
-  width: 100%; 
-}
-
-#question {
-  font-size: var(--font-size-h4);
-  margin: 10px 10px 0 10px;
-  color: var(--color-base-light);
-  text-align: left;
-  overflow-wrap: break-word;
 }
 
 /******************************************
@@ -512,7 +520,7 @@ form:focus-within {
   100% { transform: translateY(-8px) rotate(-8deg); }
 }
 
-/* Welcome Form Structure and Layout */
+/* Welcome Form */
 #welcome-form {
   display: flex;
   flex-direction: column;
@@ -556,9 +564,23 @@ form:focus-within {
   border: 1.5px solid #b3e5fc;
   border-radius: var(--radius-input);
   background: rgba(255,255,255,0.95);
-  color: var(--color-base-dark);
+  color: #222;
   transition: border-color var(--transition-btn), box-shadow var(--transition-btn);
   outline: none;
+  font-family: inherit;
+}
+
+#welcome-form input:focus,
+#welcome-form input:focus-visible {
+  outline: none;
+  border-color: var(--color-primary-dark);
+  box-shadow: none;
+}
+
+#welcome-form input::placeholder {
+  font-size: 1rem;
+  color: var(--color-muted-text);
+  opacity: 1;
   font-family: inherit;
 }
 
@@ -581,42 +603,6 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
 #result-screen { outline: none; }
 #result-screen:focus { outline: none; }
 #result-screen *:focus { outline: none; }
-
-/* Errors & Validation */
-#welcome-form input:invalid {
-  border-color: var(--color-border);
-  box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.2);
-  font-size: 1em;
-}
-
-#welcome-form input:invalid:focus {
-  border-color: var(--color-border);
-  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.3);
-}
-
-
-#welcome-form input:focus,
-#welcome-form input:focus-visible {
-  outline: none;
-  border-color: var(--color-primary-dark);
-  box-shadow: none;
-}
-
-#welcome-form input::placeholder {
-  font-size: 1rem;
-  color: var(--color-placeholder);
-  opacity: 1;
-  font-family: inherit;
-  font-style: italic;
-}
-
-/* results screen */
-#result-screen.screen {
-  align-items: flex-start;
-  max-width: 100%;
-  padding-left: 1rem;
-}
-
 
 /******************************************
  * Hero Section
@@ -652,7 +638,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
   background: var(--color-info-bg);
   color: var(--color-primary-dark);
   font-weight: 600;
-  border-radius: 16px;
+  border-radius: var(--radius-badge);
   letter-spacing: 0.5px;
   box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
 }
@@ -682,7 +668,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
 }
 
 .hero-title-accent {
-  color: var(--color-hero-title-accent);
+  color: #006837;
   font-weight: 800;
 }
 
@@ -760,7 +746,6 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
   50% { transform: translateY(-8px) scale(1.02) rotateZ(-1deg); }
 }
 
-
 /******************************************
  * Stats & Error
  ******************************************/
@@ -804,10 +789,8 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
 }
 
 /* Top hero image */
-.mobile-hero-img-top { 
-  display: block; 
-  margin-bottom: 0.5em; 
-}
+.mobile-hero-img-top { display: block; margin-bottom: 0.5em; }
+
 
 
 /******************************************
@@ -821,13 +804,13 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
   padding: 4px 0 4px 10px;
   margin-top: 1px;
   margin-bottom: 2px;
-  color: var(--color-border);
+  color: #d32f2f;
   min-height: 1.2em;
   font-weight: 400;
   font-family: var(--font-main);
   line-height: 1.4;
   transition: opacity var(--transition-btn) ease, transform 0.2s ease;
-  border-left: 3px solid var(--color-border);;
+  border-left: 3px solid #d32f2f;
   background-color: var(--color-base-light);
   border-radius: 0 4px 4px 0;
   text-align: left;
@@ -839,15 +822,38 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
 .error-message:empty { display: none; }
 .error-message.error-active { animation: shake 0.5s ease-in-out; }
 .error-message.success-message {
-  color: var(--color-validation);
-  border-left-color: var(--color-validation);
+  color: #2e7d32;
+  border-left-color: #2e7d32;
   background-color: var(--color-base-light);
 }
-
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   25% { transform: translateX(-5px); }
   75% { transform: translateX(5px); }
+}
+
+#welcome-form input:invalid {
+  border-color: #d32f2f;
+  box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.2);
+  font-size: 1em; 
+}
+
+#welcome-form input:invalid:focus {
+  border-color: #d32f2f;
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.3);
+}
+
+#welcome-form input::placeholder {
+  color: #999;
+  font-style: italic;
+  font-size: 1em; 
+}
+
+/* results screen */
+#result-screen.screen {
+  align-items: flex-start;
+  max-width: 100%;
+  padding-left: 1rem;
 }
 
 
@@ -855,7 +861,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
  * Responsive Tablet
  ***********************/
 @media (min-width: 601px) and (max-width: 1200px) {
-      
+  
   body { 
     padding: 20px; 
   }
@@ -873,14 +879,14 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
     overflow: hidden;
   }
 
-#quiz-label {
+  #quiz-label {
     width: 100%;
     margin: 0;
     padding: 0;
     font-size: var(--font-size-h2);
   }
 
-#progress {
+  #progress {
     font-size: var(--font-size-h3);
   }
 
@@ -890,12 +896,12 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
     padding: 1rem 0;
   }
 
-#question { 
+  #question { 
     font-size: var(--font-size-h4);
     margin: 0; 
     max-width: 90vw; 
     margin: 10px 10px 0 10px;
-  } 
+  }
 
   .hero-left {
     order: 1; 
@@ -905,11 +911,11 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
     align-items: center;
   }
 
-   .hero-grid { 
+  .hero-grid { 
     flex-direction: column;
    }
 
- .hero-right { 
+  .hero-right { 
     order: 0; 
     width: 100%; 
     display: flex; 
@@ -925,86 +931,86 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
     border-radius: 14px;
     box-shadow: 0 4px 24px rgba(0,0,0,0.10);
   }
-
- .hero-img { 
+  
+  .hero-img { 
     width: var(--hero-img-tablet-width); 
     max-width: 320px; 
     height: auto; 
     margin: 0 auto; 
   }
 
-.hero-title-group, .hero-desc, .badge {
+  .hero-title-group, .hero-desc, .badge {
     text-align: center; 
     margin-left: auto; 
     margin-right: auto; 
     max-width: 60vw;
   }
 
-.hero-title-group { 
+  .hero-title-group { 
     font-size: 2em; 
     margin-bottom: 0.3em; 
   }
 
-
-.hero-desc { 
+  .hero-desc { 
     font-size: 1.2em; 
     margin-bottom: 1em; 
   }
 
-.badge { 
+  .badge { 
     font-size: 1.15em; 
     padding: 6px 20px; 
     margin-bottom: 12px; 
   }
 
-#welcome-form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  #welcome-form {
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
     text-align: center;
     outline: none;
   }
 
   #welcome-form label[for="username"] {
-    font-size: 1.15em;
-    text-align: center;
-    margin-left: auto;
+    font-size: 1.15em; 
+    text-align: center; 
+    margin-left: auto; 
     margin-right: auto;
-    width: 90vw;
-    max-width: 320px;
+    width: 90vw; 
+    max-width: 320px; 
     display: block;
   }
-  
+
   #welcome-form input {
-    width: 90vw;
-    max-width: 320px;
-    margin-left: auto;
+    width: 90vw; 
+    max-width: 320px; 
+    margin-left: auto; 
     margin-right: auto;
-    padding-left: 1rem;
-    font-size: 1.2em;
-    min-height: 52px;
+    padding-left: 1rem; 
+    font-size: 1.2em; 
+    min-height: 52px; 
     padding: 18px 0;
-    border-radius: 12px;
-    text-align: center;
+    border-radius: 12px; 
+    padding-left: 1rem;
+    text-align: center; 
+  
   }
 
-  #welcome-form button,
-  #startBtn {
+  #welcome-form button {
     padding: 14px 14px;
-    max-width: fit-content;
+    max-width: fit-content; 
     align-self: center;
   }
 
   .error-message {
-    width: 90vw;
-    max-width: 320px;
-    margin-left: auto;
+    width: 90vw; 
+    max-width: 320px; 
+    margin-left: auto; 
     margin-right: auto;
-    box-sizing: border-box;
-    font-size: 0.9em;
+    box-sizing: border-box; 
+    font-size: 0.9em; 
     padding: 6px 0 6px 12px;
-    margin-top: 2px;
+    margin-top: 2px; 
     margin-bottom: 3px;
   }
 
@@ -1013,10 +1019,11 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
     min-height: 48px; 
     padding: 10px 0;
     margin: 0px 0;
-    font-size: var(--font-size-choice); 
+    font-size: var(--font-size-choice);
+    
   }
 
-.stats-row {
+  .stats-row {
     flex-direction: row; 
     gap: 18px; 
     padding: 20px 10px; 
@@ -1062,8 +1069,6 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
    }
 
 }
-
-
 
 /****************************
  * Responsive Desktop
