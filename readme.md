@@ -133,11 +133,11 @@ As the site owner:
 
 - **Close Button:** A universal "X" button is available on the quiz screen, allowing users to exit the quiz at any time and return to the welcome screen. 
 
-Coorect answer image example:
+**Correct answer image example:**
 ![Quiz In Progress 1](assets/images/second-page.png)
 
 
-Incorrect answer image example with alert red:
+**Incorrect answer image example with alert red:**
 ![Quiz In Progress 2](assets/images/third-page.png)
 
 
