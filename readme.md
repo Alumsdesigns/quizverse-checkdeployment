@@ -308,10 +308,7 @@ The site is deployed on GitHub Pages.
    git clone https://github.com/Alumsdesigns/quizverse.git
    cd quizverse
    ```
-2. Open `index.html` in your browser. No build step required.
-
-- Deplyment was deplayed on github due to global github maintanence the end of May 2025 and github pages still isn't back to optimal performance with site launches taking 12hurs+ as of June 2025see [Githubs announcements](https://www.githubstatus.com/) the end of Amy
-- [View on githib pages](https://alumsdesigns.github.io/davinaleilaniblooms/) 
+2. Open `index.html` in your browser by useing visual studio code extension "Go Live"
 
 ### How this site was deployed
 
