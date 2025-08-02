@@ -193,7 +193,7 @@ This project was tested for:
 - HTML and CSS validation using W3C tools
 
 
-## HTML Validation
+### HTML Validation
 All HTML validation issues have been resolved:
 -  Removed trailing slashes from void elements (`<meta>`, `<link>`, `<input>`, `<img>`, `<line>`)
 -  Removed unnecessary `role="region"` from `<section>` elements
@@ -206,7 +206,7 @@ All HTML validation issues have been resolved:
 | HTML Validation | ![HTML Errors](assets/screenshots//html-validation-errors.png) |
 | HTML Validation | ![HTML Erros fixed](assets/screenshots/html-validation-complete.png) |
 
-## CSS Validation
+### CSS Validation
 - All CSS validation passed without errors:
 
 
@@ -215,8 +215,7 @@ All HTML validation issues have been resolved:
 | CSS Validation | ![CSS Valid](assets/screenshots/css-valid.png) |
 
 
-
-## Manual User Testing Table
+### Manual User Testing Table
 
 | Test Case ID | Test Description                                      | Input Data           | Expected Result                                                                 | Actual Result | Pass/Fail |
 |--------------|--------------------------------------------------------|----------------------|----------------------------------------------------------------------------------|---------------|-----------|
