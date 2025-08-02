@@ -185,12 +185,30 @@ const questions = [
 let currentQuestionIndex = 0; 
 let score = 0;                
 let username = '';  
+let timerInterval;            
+const totalTimePerQuestion = 20; 
+let timeRemaining = totalTimePerQuestion;
+
+const progressBarContainer = document.getElementById('progress-bar-container');
+const progressBar = document.getElementById('progress-bar');
+const progressBarLabel = document.getElementById('progress-bar-label');
 
 const welcomeScreen = document.getElementById('welcome-screen');
 const quizScreen = document.getElementById('quiz-screen');
+const resultScreen = document.getElementById('result-screen');
 
 const startBtn = document.getElementById('startBtn');
 const nextBtn = document.getElementById('nextBtn');
+const restartBtn = document.getElementById('restartBtn');
+const closeQuizBtn = document.getElementById('closeQuizBtn');
+const welcomeForm = document.getElementById('welcome-form');
+
+const questionEl = document.getElementById('question');
+const choicesEl = document.getElementById('choices');
+const feedbackEl = document.getElementById('feedback');
+const finalScoreEl = document.getElementById('finalScore');
+const timerEl = document.getElementById('timer');
+const progressEl = document.getElementById('progress');
 
 startBtn.addEventListener('click', startQuiz);
 if (welcomeForm) {
@@ -207,6 +225,29 @@ if (usernameInput) {
   usernameInput.addEventListener('input', validateUsername);
   usernameInput.addEventListener('blur', validateUsername);
 }
+
+const VALIDATION_CONFIG = {
+  MIN_LENGTH: 2,
+  MAX_LENGTH: 50,
+  PATTERNS: {
+    VALID_NAME: /^[A-Za-zÀ-ÿ\s'-]+$/,
+    SUSPICIOUS: [
+      /script/i, /javascript/i, /on\w+\s*=/i, /<[^>]*>/i,
+      /union/i, /select/i, /insert/i, /update/i, /delete/i, /drop/i,
+      /exec/i, /eval/i, /alert/i, /confirm/i, /prompt/i,
+      /document\./i, /window\./i, /location\./i, /history\./i
+    ]
+  },
+  MESSAGES: {
+    EMPTY: 'Please enter your name to continue.',
+    TOO_SHORT: 'Name must be at least 2 characters long.',
+    TOO_LONG: 'Name must be 50 characters or less.',
+    INVALID_CHARS: 'Name can only contain letters, spaces, hyphens, and apostrophes.',
+    INVALID_SPACES: 'Name cannot start or end with spaces, or have multiple consecutive spaces.',
+    SUSPICIOUS: 'Please enter a valid name without special characters.',
+    SUCCESS: 'Name looks good!'
+  }
+};
 
 function startQuiz() {
   const nameInput = document.getElementById('username');
