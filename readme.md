@@ -150,18 +150,26 @@ The app is a single-page application with three main views: Welcome, Quiz, and R
 
 
 ## Colour Scheme
-![Colour Palette](assets)
-![Colour Palette](assets)
+#### Primary and Secondary Colors 
+![Colour Palette](assets/images/prim-second-colors.png)
+#### Functional and Feedback Colors
+![Colour Palette](assets/images/function-feedback-colors.png)
+#### Neutral and Background Colors
+![Colour Palette](assets/images/neutral-background-colors.png)
 
 The color palette was chosen for high contrast and readability, ensuring accessibility for all users.
 
 ## Typography
-- Uses google fonts
-- Uses system fonts for fast loading and readability.
-- Large, clear headings and buttons for easy navigation.
-- Primary Font: 'Lato', sans-serif
-- Headings Font: 'Playfair Display', serif (h1, h2, h3, h4, h5, h6, p)
-- Button/Choice Font: 'Roboto', sans-serif
+
+- Font Import: Your CSS imports three Google Fonts: Lato, Playfair Display, and Roboto.
+
+- Font Stacks: Each font stack includes a system font fallback (Arial, Helvetica, sans-serif, or serif) to ensure fast loading and readability even if the Google Font fails to load.
+
+- Main Font (Lato): Used for the body text, making it a highly readable and modern sans-serif font for general content.
+
+- Heading Font (Playfair Display): Used for headings (h1, h2, h3, h4, h5, h6) and paragraphs (p), giving the site a distinct and elegant serif style.
+
+- Buttons & Choices Font (Roboto): Applied to buttons and quiz choices, providing a clean, clear, and easy-to-read sans-serif style for interactive elements.
 
 ## Imagery
 
@@ -235,7 +243,18 @@ All HTML validation issues have been resolved:
 | TC14         | CSS and animation effects on result                    | Finish quiz          | Animations load smoothly without lag                                             | As expected   | Pass      |
 | TC15         | Accessibility: Color contrast and font readability     | Visual check         | All text has sufficient contrast and readable font sizes                         | As expected   | Pass      |
 
+
+### Browser Compatibility
+
+- Testing has been carried out on the following browsers :
+    - Chrome Version 90.0.4430.212 (Official Build) (64-bit)
+    - Firefox Version 88.0.1 (64-bit)
+    - Edge Version 90.0.818.62 (Official build) (64-bit)
+    - Safari on macOS Catalina (Safari  Version 14.0.3)
+
+    
 ---
+
 
 # 6. Deployment and Local Development
 
@@ -251,6 +270,18 @@ The site is deployed on GitHub Pages.
    cd quiz-project
    ```
 2. Open `index.html` in your browser. No build step required.
+
+- Deplyment was deplayed on github due to global github maintanence the end of May 2025 and github pages still isn't back to optimal performance with site launches taking 12hurs+ as of June 2025see [Githubs announcements](https://www.githubstatus.com/) the end of Amy
+- [View on githib pages](https://alumsdesigns.github.io/davinaleilaniblooms/) 
+
+### How this site was deployed
+
+- In the GitHub repository, navigate to the Settings tab, then choose Pages from the left hand menu 
+- From the source section drop-down menu, select the Master Branch
+- Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment
+- Any changes pushed to the master branch will take effect on the live project
+
+
 
 ---
 
@@ -325,3 +356,5 @@ The site is deployed on GitHub Pages.
 - **High contrast** error messages
 - **Semantic structure** for assistive technology
 
+## Acknowledgements
+- Thanks to code institute and w3schools for their support
