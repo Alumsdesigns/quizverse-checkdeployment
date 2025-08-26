@@ -531,14 +531,24 @@ function resetQuiz() {
   updateProgressBar();
 }
 
+// function showScreen(screen) {
+//   screen.classList.remove('hidden');
+//   screen.setAttribute('aria-hidden', 'false');
+// }
+
+// function hideScreen(screen) {
+//   screen.classList.add('hidden');
+//   screen.setAttribute('aria-hidden', 'true');
+// }
+
 function showScreen(screen) {
   screen.classList.remove('hidden');
-  screen.setAttribute('aria-hidden', 'false');
+  screen.removeAttribute('inert');
 }
 
 function hideScreen(screen) {
   screen.classList.add('hidden');
-  screen.setAttribute('aria-hidden', 'true');
+  screen.setAttribute('inert', '');
 }
 
 function startTimer() {
