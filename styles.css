@@ -868,7 +868,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
 
   .container {
     max-width: 90vw;
-    min-height: 85vh; 
+    min-height: fit-content; 
     max-height: 90vh;
     margin: 12px auto 0 auto; 
     background: var(--gradient-bg);
@@ -1098,7 +1098,7 @@ input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-
 
   .container {
     max-width: 90vw;
-    min-height: 80vh; 
+    min-height: fit-content; 
     max-height: 95vh;
     margin: 12px auto 0 auto; 
     background: var(--gradient-bg);
